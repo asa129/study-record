@@ -62,22 +62,23 @@ function App() {
       </div>
       <div>入力されている学習内容:{studyContent}</div>
       <div>入力されている時間:{studyTime}</div>
-      <ul>
-      {records.map((record) =>
-        <div>
-          <table>
+      <table>
+        <thead></thead>
+        <tbody>
+          {records.map((record) =>
+          <div>
             <tr>
               <td>
-                <li>{`${record.title} ${record.time}時間`}</li>
+                {`${record.title} ${record.time}時間`}
               </td>
               <td>
-                <button onClickDetele={onClickDelete}>削除</button>
+                <button>削除</button>
               </td>
             </tr>
-          </table>
-        </div>
-       )}
-      </ul>
+          </div>
+          )}
+        </tbody>
+      </table>
       <button onClick={onClickAdd}>登録</button>
       {error}<br />
       合計時間:{totalTime} / 1000(h)  
