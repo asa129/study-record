@@ -32,7 +32,7 @@ function App() {
     setStudyContent("");
     setStudyTime(0);
   }
-
+  
   useEffect(() => {
     const datas =  getAllDatas();
     let dbRecords = [...records];
@@ -66,7 +66,7 @@ function App() {
         <thead></thead>
         <tbody>
           {records.map((record) =>
-          <div>
+          <>
             <tr>
               <td>
                 {`${record.title} ${record.time}時間`}
@@ -75,7 +75,7 @@ function App() {
                 <button>削除</button>
               </td>
             </tr>
-          </div>
+          </>
           )}
         </tbody>
       </table>
