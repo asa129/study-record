@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -10,6 +10,7 @@ function App() {
   const [studyTime, setStudyTime] = useState("");
   const [error, setError] = useState("");
   const [totalTime, setTotalTime] = useState(0);
+  const [loading, setLoading] = useState(true);
   const onChangeContent = (event) => setStudyContent(event.target.value);;
   const onChangeTime = (event) => setStudyTime(event.target.value);
   const onClickAdd = () => {
@@ -28,10 +29,24 @@ function App() {
     setStudyTime(0);
   }
 
-  const allData = () => getAllDatas();
+  useEffect(() => {
+    const datas =  getAllDatas();
+    let dbRecords = [...records];
+    datas.then((dataArray) => {
+      dataArray.map(
+        (data) => {
+          dbRecords = [...dbRecords, {title: data.title, time: data.time}]
+          setRecords(dbRecords);
+        }
+      )
+    })
+    setLoading((loading) => loading = false);
+  }, []);
 
   return (
     <>
+      {loading ? <p>loading中</p> : 
+      <div>
       <h1>学習記録一覧</h1>
       <div>
         <label htmlFor="studyContent">学習内容</label>
@@ -48,8 +63,9 @@ function App() {
       </ul>
       <button onClick={onClickAdd}>登録</button>
       {error}<br />
-      合計時間:{totalTime} / 1000(h)
-      {console.log(allData())}
+      合計時間:{totalTime} / 1000(h)  
+      </div>
+      }
     </>
   )
 }
