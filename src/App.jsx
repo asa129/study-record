@@ -63,7 +63,20 @@ function App() {
       <div>入力されている学習内容:{studyContent}</div>
       <div>入力されている時間:{studyTime}</div>
       <ul>
-      {records.map((record) =>  <li>{`${record.title} ${record.time}時間`}</li>)}
+      {records.map((record) =>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <li>{`${record.title} ${record.time}時間`}</li>
+              </td>
+              <td>
+                <button onClickDetele={onClickDelete}>削除</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+       )}
       </ul>
       <button onClick={onClickAdd}>登録</button>
       {error}<br />
