@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { getAllDatas, insertData } from '../utils/supabaseFunctions';
+import { deleteData, getAllDatas, insertData } from '../utils/supabaseFunctions';
 
 function App() {
   const [records, setRecords] = useState([]);
@@ -32,18 +32,19 @@ function App() {
     setStudyContent("");
     setStudyTime(0);
   }
+  const getDatas =  async() => {
+    const datas = await getAllDatas();
+    setRecords(datas);
+  }
+  // 削除ボタン押下
+  const onClickDelete = async (id) => {
+    await deleteData(id);
+    getDatas();
+  };
   
+  // 初期表示
   useEffect(() => {
-    const datas =  getAllDatas();
-    let dbRecords = [...records];
-    datas.then((dataArray) => {
-      dataArray.map(
-        (data) => {
-          dbRecords = [...dbRecords, {title: data.title, time: data.time}]
-          setRecords(dbRecords);
-        }
-      )
-    })
+    getDatas();
     setLoading((loading) => loading = false);
   }, []);
 
@@ -72,7 +73,7 @@ function App() {
                 {`${record.title} ${record.time}時間`}
               </td>
               <td>
-                <button>削除</button>
+                <button onClick={() => onClickDelete(record.id)}>削除</button>
               </td>
             </tr>
           </>

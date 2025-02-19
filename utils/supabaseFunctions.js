@@ -10,3 +10,7 @@ export const insertData = async(props) => {
   const { error } = await supabase.from("study-record").insert({ title: title, time: time });
   console.log(error);
 };
+
+export const deleteData = async(props) => {
+  const response = await supabase.from("study-record").delete().eq('id', props)
+};
