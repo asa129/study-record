@@ -55,7 +55,7 @@ function App() {
       <h1>学習記録一覧</h1>
       <div>
         <label htmlFor="studyContent">学習内容</label>
-        <input id="studyContent" type="text" value={studyContent} onChange={onChangeContent}/>
+        <input id="studyContent" type="text" placeholder='学習内容' value={studyContent} onChange={onChangeContent}/>
       </div>
       <div>
       <label htmlFor="studyTime">学習時間</label>
