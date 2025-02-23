@@ -7,4 +7,6 @@ jobs:
   project_build:
     runs-on: ubuntu-latest
     steps:
-      - run: npm run build
+      - run: |
+          cd ../
+          npm run build
