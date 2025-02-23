@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  say_hello:
+  project_build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World!"
+      - run: npm run build
