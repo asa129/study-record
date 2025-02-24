@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -28,7 +28,7 @@ jobs:
     needs: project_build
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@main
       - name: Setup Node.js and cache
         uses: actions/setup-node@v2
         with:
