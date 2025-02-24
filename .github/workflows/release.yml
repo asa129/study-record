@@ -18,8 +18,8 @@ jobs:
       - name: Run build
         run: npm run build
         env:
-          VITE_NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_URL }
-          VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY }
+          VITE_NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_URL }}
+          VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@main
         with:
