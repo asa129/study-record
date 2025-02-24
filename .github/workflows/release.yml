@@ -35,7 +35,7 @@ jobs:
           node-version: "18"
           cache: "npm"
       - name: Download Artifact
-        run: actions/download-artifact@main
+        uses: actions/download-artifact@main
         with: dist
         path: dist
       - name: Deploy to Firebase
