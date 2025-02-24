@@ -39,6 +39,8 @@ jobs:
         with:
           name: dist
           path: dist
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Deploy to Firebase
         uses: joinflux/firebase-tools@v9.16.0
         with:
