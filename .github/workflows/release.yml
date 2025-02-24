@@ -36,8 +36,9 @@ jobs:
           cache: "npm"
       - name: Download Artifact
         uses: actions/download-artifact@main
-        with: dist
-        path: dist
+        with:
+          name: dist
+          path: dist
       - name: Deploy to Firebase
         uses: joinflux/firebase-tools@main
         with:
