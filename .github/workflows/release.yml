@@ -44,6 +44,6 @@ jobs:
       - name: Deploy to Firebase
         uses: joinflux/firebase-tools@v9.16.0
         with:
-          args: deploy --project=study-record-7da4e
+          args: deploy --project=study-record-7da4e --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
