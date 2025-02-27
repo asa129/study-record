@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { deleteData, getAllDatas, insertData } from '../utils/supabaseFunctions';
 
@@ -52,7 +50,7 @@ function App() {
     <>
       {loading ? <p>loading中</p> : 
       <div>
-      <h1>学習記録一覧</h1>
+      <h1 data-testid="title">学習記録一覧</h1>
       <div>
         <label htmlFor="studyContent">学習内容</label>
         <input id="studyContent" type="text" placeholder='学習内容' value={studyContent} onChange={onChangeContent}/>
