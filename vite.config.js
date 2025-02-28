@@ -6,4 +6,7 @@ export default defineConfig({
   plugins: [react(),
 		env({ prefix: "VITE",  mountedPath: "process.env" }) 
 	],
+	define: {
+    global: 'window',
+  }
 })
