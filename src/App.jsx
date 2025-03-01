@@ -53,11 +53,11 @@ function App() {
       <h1 data-testid="title">学習記録一覧</h1>
       <div>
         <label htmlFor="studyContent">学習内容</label>
-        <input id="studyContent" type="text" placeholder='学習内容' value={studyContent} onChange={onChangeContent}/>
+        <input data-testid="studyContent" type="text" placeholder='学習内容' value={studyContent} onChange={onChangeContent}/>
       </div>
       <div>
       <label htmlFor="studyTime">学習時間</label>
-        <input id="studyTime" type="number"  value={studyTime} onChange={onChangeTime}/>時間
+        <input data-testid="studyTime" type="number"  value={studyTime} onChange={onChangeTime}/>時間
       </div>
       <div>入力されている学習内容:{studyContent}</div>
       <div>入力されている時間:{studyTime}</div>
