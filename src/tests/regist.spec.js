@@ -19,7 +19,7 @@ describe("Regist Test", () => {
 		const registButton = screen.getByTestId("add");
 		await userEvent.click(registButton);
 
-		テーブルの行を取得できるまで待つ
+		// テーブルの行を取得できるまで待つ
 		await waitFor(() => {
 			screen.getAllByRole("row");
 		});
