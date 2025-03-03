@@ -65,8 +65,7 @@ function App() {
         <thead></thead>
         <tbody>
           {records.map((record) =>
-          <>
-            <tr>
+            <tr key={record.id}>
               <td>
                 {`${record.title} ${record.time}時間`}
               </td>
@@ -74,11 +73,10 @@ function App() {
                 <button onClick={() => onClickDelete(record.id)}>削除</button>
               </td>
             </tr>
-          </>
           )}
         </tbody>
       </table>
-      <button onClick={onClickAdd}>登録</button>
+      <button data-testid="add" onClick={onClickAdd}>登録</button>
       {error}<br />
       合計時間:{totalTime} / 1000(h)  
       </div>
