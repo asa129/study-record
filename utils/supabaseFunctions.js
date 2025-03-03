@@ -1,7 +1,7 @@
 import { supabase } from "./spabase"
 
 export const getAllDatas = async() => {
-  const datas = await supabase.from("study-record").select("*"); 
+  const datas = await supabase.from("study-record").select("*").order('created_at', { ascending: true }); 
   return datas.data;
 };
 
