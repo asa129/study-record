@@ -11,7 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const onChangeContent = (event) => setStudyContent(event.target.value);;
   const onChangeTime = (event) => setStudyTime(event.target.value);
-  const onClickAdd = () => {
+  const onClickAdd = async () => {
     // 全項目が入力されていないときにエラーを設定
     if(studyContent === "" || studyTime === 0 || studyTime === ""){
       return setError(<p>入力されていない項目があります</p>);
@@ -19,12 +19,12 @@ function App() {
     setError("");
     // データベースに記録する
     const newData = {title:studyContent, time:studyTime};
-    insertData(newData);
-    // 表示用に配列に登録値を追加
-    const newRecords = [...records, newData] 
-    setRecords(newRecords);
+    await insertData(newData);
+
+    // 登録後のデータを取得
+    await getDatas();
     // 合計時間の計算
-    const time = newRecords.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.time), 0);
+    const time = records.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.time), 0);
 
     setTotalTime(time);
     setStudyContent("");
@@ -65,7 +65,7 @@ function App() {
         <thead></thead>
         <tbody>
           {records.map((record) =>
-            <tr key={record.id}>
+            <tr key={record.id} >
               <td>
                 {`${record.title} ${record.time}時間`}
               </td>
