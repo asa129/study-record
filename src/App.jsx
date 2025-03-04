@@ -70,7 +70,7 @@ function App() {
                 {`${record.title} ${record.time}時間`}
               </td>
               <td>
-                <button onClick={() => onClickDelete(record.id)}>削除</button>
+                <button data-testid="delete" onClick={() => onClickDelete(record.id)}>削除</button>
               </td>
             </tr>
           )}
