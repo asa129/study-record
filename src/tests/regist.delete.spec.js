@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 import { render, screen, within, waitFor} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-describe("Regist Test", () => {
+describe("RegistDelete Test", () => {
 	it("フォームに入力、登録ボタンを押すと記録が追加されている数が1つ増えていること", async () => {
 
 		render(<App />);
@@ -37,12 +37,7 @@ describe("Regist Test", () => {
 		
 		render(<App />);
 
-		// テーブルの行を取得できるまで待つ
-		await waitFor(() => {
-			screen.getAllByRole("row");
-		});
-
-		const before = screen.getAllByRole("row").length;
+		const before = (await screen.findAllByRole("row")).length;
 
 		// テーブル最初の行の削除ボタン押下
 		const rows = screen.getAllByRole("row");
