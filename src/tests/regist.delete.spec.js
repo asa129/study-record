@@ -44,10 +44,11 @@ describe("RegistDelete Test", () => {
 		await waitFor(() => {
 			try{
 				after = screen.getAllByRole("row").length;
+				expect(after).toBe(before - 1);
 			}catch{
 				after = 0;
+				expect(after).toBe(before - 1);
 			}
-			expect(after).toBe(before - 1);
 		});
 	});
 
