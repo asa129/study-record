@@ -14,7 +14,7 @@ function App() {
   const onClickAdd = async () => {
     // 全項目が入力されていないときにエラーを設定
     if(studyContent === "" || studyTime === 0 || studyTime === ""){
-      return setError(<p>入力されていない項目があります</p>);
+      return setError(<p data-testid="error">入力されていない項目があります</p>);
     }
     setError("");
     // データベースに記録する

@@ -1,7 +1,7 @@
 import App from "../App";
 import React from "react";
 import '@testing-library/jest-dom'
-import { render, screen, within, waitFor} from "@testing-library/react";
+import { render, screen, within, waitFor, findAllByRole} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe("RegistDelete Test", () => {
@@ -49,5 +49,15 @@ describe("RegistDelete Test", () => {
 			}
 			expect(after).toBe(before - 1);
 		});
+	});
+
+	it("入力をしないで登録を押すとエラーが表示される", async () => {
+
+		render(<App />);
+
+		// 登録ボタン押下
+		userEvent.click(await screen.findByTestId("add"));
+
+		expect(await screen.findByTestId("error")).toHaveTextContent("入力されていない項目があります");
 	});
 });
