@@ -24,6 +24,7 @@ function App() {
     // 登録後のデータを取得
     await getDatas();
     // 合計時間の計算
+		console.log(records);
     const time = records.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.time), 0);
 
     setTotalTime(time);
