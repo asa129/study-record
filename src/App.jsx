@@ -23,11 +23,7 @@ function App() {
 
     // 登録後のデータを取得
     await getDatas();
-    // 合計時間の計算
-		console.log(records);
-    const time = records.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.time), 0);
 
-    setTotalTime(time);
     setStudyContent("");
     setStudyTime(0);
   }
@@ -35,6 +31,7 @@ function App() {
     const datas = await getAllDatas();
     setRecords(datas);
   }
+
   // 削除ボタン押下
   const onClickDelete = async (id) => {
     await deleteData(id);
@@ -46,6 +43,13 @@ function App() {
     getDatas();
     setLoading((loading) => loading = false);
   }, []);
+
+	// 登録データに変更があった場合に合計時間を計算する
+	useEffect(() => {
+		// 合計時間の計算
+		const time = records.reduce((accumulator, currentValue) => accumulator + parseInt(currentValue.time), 0);
+		setTotalTime(time);
+	}, [records]);
 
   return (
     <>
