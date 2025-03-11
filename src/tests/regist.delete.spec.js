@@ -42,13 +42,8 @@ describe("RegistDelete Test", () => {
 		// テーブルの行が1行削除されていること
 		let after;
 		await waitFor(() => {
-			try{
-				after = screen.getAllByRole("row").length;
-				expect(after).toBe(before - 1);
-			}catch{
-				after = 0;
-				expect(after).toBe(before - 1);
-			}
+			after = screen.queryAllByRole("row").length;
+			expect(after).toBe(before - 1);
 		});
 	});
 
