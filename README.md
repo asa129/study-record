@@ -14,10 +14,22 @@ javascript
 supabase  
 jest  
 react-testing-library  
-## 環境変数の設定方法(.env)
-1. Supabaseのアカウントを作成する
-2. 新規プロジェクトを作成する(プロジェクト名はstudy-record、データベースパスワードは適当でOK)
-3. Table Editorで以下のテーブルを作成する
+## インストール・セットアップ方法
+1. リポジトリをクローン
+ ```
+ $ git clone https://github.com/asa129/study-record.git
+ $ cd study-record
+ ```
+
+2. 必要なパッケージをインストール
+ ```
+ $ npm install
+ ```
+
+3. Supabaseの設定
+ * [Supabase](https://supabase.com/)のアカウントを作成する
+ * 新規プロジェクトを作成する(プロジェクト名はstudy-record、データベースパスワードは適当)
+ * Table Editorで以下のテーブルを作成する
 
  テーブル名 : study-record
  
@@ -29,12 +41,13 @@ react-testing-library
  |created_at|timestamptz ||
 
 4. プロジェクトのルートに`.env`ファイルを作成し、以下内容を追加する
-```
-VITE_NEXT_PUBLIC_SUPABASE_URL=あなたのProject URL
-VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY=あなたのシークレットキー
-```
-APIURLとシークレットキーの取得は[Dashboard](https://supabase.com/dashboard/project/_/settings/api)から可能
-## 起動の仕方
+ ```
+ VITE_NEXT_PUBLIC_SUPABASE_URL=Project URL
+ VITE_NEXT_PUBLIC_SUPABASE_ANON_KEY=シークレットキー
+ ```
+ APIURLとシークレットキーの取得は[Dashboard](https://supabase.com/dashboard/project/_/settings/api)から可能  
+
+5. アプリケーションの起動
 ```
 npm run dev
 ```
