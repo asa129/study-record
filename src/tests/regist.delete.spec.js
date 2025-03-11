@@ -1,8 +1,12 @@
 import App from "../App";
 import React from "react";
 import '@testing-library/jest-dom'
-import { render, screen, within, waitFor, findAllByRole} from "@testing-library/react";
+import { render, screen, within, waitFor, cleanup} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
+afterEach(() => {
+	cleanup();
+});
 
 describe("RegistDelete Test", () => {
 	it("フォームに入力、登録ボタンを押すと記録が追加されている数が1つ増えていること", async () => {
